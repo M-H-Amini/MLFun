@@ -1,11 +1,10 @@
 import torch
 import numpy as np
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import DataLoader
 from torch.nn import Module
-from torchvision import datasets
-from torchvision.transforms import ToTensor
 import matplotlib.pyplot as plt
 from mh_data import MHDataset
+import seaborn as sns
 
 class MHLinearRegression(Module):
     def __init__(self, input_dim:int):
@@ -50,6 +49,7 @@ def visualize(loader, model, title=''):
     y_eval = torch.concat(y_eval).detach()
     pred_eval = torch.concat(pred_eval).detach()
     
+    sns.set()
     plt.plot(X_eval, y_eval, 'rx')
     plt.plot(X_eval, pred_eval, 'b--')
     plt.title(title)
@@ -74,7 +74,7 @@ if __name__ == '__main__':
     MSELoss = torch.nn.MSELoss()
 
     ##  Train...
-    for i in range(100):
+    for i in range(20):
         trainEpoch(train_loader, model, opt, MSELoss, i+1)
         evalEpoch(test_loader, model, MSELoss, i+1)
     

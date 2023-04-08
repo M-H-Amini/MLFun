@@ -2,6 +2,7 @@ import torch
 import numpy as np
 from torch.utils.data import Dataset, DataLoader
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 class MHDataset(Dataset):
     def __init__(self, linear_slope=0.5, sine_amp=1, sine_freq=1, n=20, x_range=(-3, 3), noise_amp=0.1, offset=1):
@@ -24,20 +25,14 @@ class MHDataset(Dataset):
         return self.X[index:index+1], self.y[index]
 
 if __name__ == '__main__':
-    mhd = MHDataset(n=128)
-    data_loader = DataLoader(mhd, batch_size=32, shuffle=False)
+    mhd = MHDataset(1, 0.1, 0.1, 128, x_range = (-3, 3), noise_amp=0.01)
+    data_loader = DataLoader(mhd, batch_size=128, shuffle=False)
     X, y = next(iter(data_loader))
+    sns.set()
     plt.plot(X, y, 'r--o')
+    plt.title("Dataset")
     plt.show()
     
-    device = (
-    "cuda"
-    if torch.cuda.is_available()
-    else "mps"
-    if torch.backends.mps.is_available()
-    else "cpu"
-    )
-    print(f"Using {device} device")
 
 
 

@@ -12,6 +12,14 @@ You need to have Python 3.6+ installed on your system. You can download it from 
 pip install -r requirements.txt
 ```
 
+### Running the code
+
+To run the code, simply run the following command:
+
+```bash
+python mh_linear_regression.py
+```
+
 ## Dataset
 
 For the dataset I've created a simple univariate dataset. Each data point is a tuple of (x, y) where x is the input and y is the output. It's an addition of a line and a sine wave with some noise. The dataset looks like this:

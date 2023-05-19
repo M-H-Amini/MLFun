@@ -1,6 +1,6 @@
 # Easy-to-Use Variational Autoencoder (VAE) in Tensorflow 2.0
 
-<img src="stuff/training_2d.gif">
+<img src="stuff/training_2d.gif" width="700">
 
 This is a simple implementation of a Variational Autoencoder (VAE) in Tensorflow 2.0. It's meant to be easy to use and easy to understand. I've tried to keep the code as simple as possible. I've also added a lot of comments to make it easier to understand. Using this code you can train a VAE on your own dataset in just a few lines of code.
 
@@ -32,6 +32,6 @@ A simple example is implemented in `train_custom.py`.
 
 ## Latent Space Representation
 
-As a funny exploration, I've trained a VAE with 2-dimensional latent space on the MNIST dataset. Here's a visualization of the latent space:
+As a funny exploration, I've trained a VAE with 2-dimensional latent space on the MNIST dataset. Here's a visualization of the latent space. We can see that the latent space has learned to represent the digits in a meaningful way and the same digits are almost clustered together.
 
-<img src="stuff/latent.png" width="700">
+<img src="stuff/latent.png" width="1400">
